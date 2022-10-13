@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-j%^*y0krq5^-#3lggoecxw!d7ad_gqkab3t5w17&0w06+qf8+8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# SMTP Configure
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
@@ -171,7 +172,6 @@ MESSAGE_TAGS = {
     messages.ERROR: "alert-danger",
 }
 
-# SMTP Configure
 
 
 #  All Auth Configurations
