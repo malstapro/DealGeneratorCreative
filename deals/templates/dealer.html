@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+{% load humanize %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deal Generator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta http-equiv="refresh" content="20"/>
+</head>
+<body>
+<div style="width:40vw;border-right:1px solid black;border-bottom:1px solid black">
+    <ul class="list-group list-group-flush">
+  <li class="list-group-item active"> <h4>Bitcoin: {{btc}} $</h4></li>
+  <li class="list-group-item"><h4>Etherum: {{eth}} $</h4></li>
+  <li class="list-group-item"><h4>Litecoin: {{ltc}} $</h4></li>
+  <li class="list-group-item"><h4>BNB: {{bnb}} $</h4></li>
+  <li class="list-group-item"><h4>Ripple: {{xrp}} $</h4></li>
+  <li class="list-group-item"><h4>Cardano: {{ada}} $</h4></li>
+  <li class="list-group-item"><h4>Tron: {{trx}} $</h4></li>
+  <li class="list-group-item"><h4>Solana: {{sol}} $</h4></li>
+</ul>
+
+</div>
+
+
+<div class="bg-secondary" style="width:30%;height:680px;overflow:auto">
+    <h2 style="color:white;">Консервативный</h2>
+    {%for i in deals%}
+    {%if i.type == 'Conserve'%}
+    {%if i.event == 'Growth'%}
+        <div class="alert alert-success">
+            <h3>{{i.crypto}}  +{{i.profit}}%</h3>
+            <h4>{{i.entry_price}}$</h4>
+            <h4>{{i.sell_price}}$</h4>
+            <h5>{{i.exchange}}</h5>
+            <h5>{{i.date|naturaltime}}</h5>
+        </div>
+    {%else%}
+        <div class="alert alert-danger">
+            <h3>{{i.crypto}}  {{i.profit}}%</h3>
+            <h4>{{i.entry_price}}$</h4>
+            <h4>{{i.sell_price}}$</h4>
+            <h5>{{i.exchange}}</h5>
+             <h5>{{i.date|naturaltime}}</h5>
+
+        </div>
+    {%endif%}
+    {%endif%}
+    {%endfor%}
+
+</div>
+
+<div class="bg-warning" style="position:absolute;top:73%;left:35%;width:30%;height:680px;overflow:auto">
+    <h2 style="color:white;text-align:center">Рискованый</h2>
+    {%for i in deals%}
+    {%if i.type == 'Risk'%}
+    {%if i.event == 'Growth'%}
+        <div class="alert alert-success">
+            <h3>{{i.crypto}}  +{{i.profit}}%</h3>
+            <h4>{{i.entry_price}}$</h4>
+            <h4>{{i.sell_price}}$</h4>
+            <h5>{{i.exchange}}</h5>
+            <h5>{{i.date|naturaltime}}</h5>
+        </div>
+    {%else%}
+        <div class="alert alert-danger">
+            <h3>{{i.crypto}}  {{i.profit}}%</h3>
+            <h4>{{i.entry_price}}$</h4>
+            <h4>{{i.sell_price}}$</h4>
+            <h5>{{i.exchange}}</h5>
+             <h5>{{i.date|naturaltime}}</h5>
+
+        </div>
+    {%endif%}
+    {%endif%}
+    {%endfor%}
+
+</div>
+
+<div class="bg-dark" style="position:absolute;top:73%;left:70%;width:30%;height:680px;overflow:auto">
+    <h2 style="color:white;text-align:center">Сбалансированый</h2>
+    {%for i in deals%}
+    {%if i.type == 'Balance'%}
+    {%if i.event == 'Growth'%}
+        <div class="alert alert-success">
+            <h3>{{i.crypto}}  +{{i.profit}}%</h3>
+            <h4>{{i.entry_price}}$</h4>
+            <h4>{{i.sell_price}}$</h4>
+            <h5>{{i.exchange}}</h5>
+            <h5>{{i.date|naturaltime}}</h5>
+        </div>
+    {%else%}
+        <div class="alert alert-danger">
+            <h3>{{i.crypto}}  {{i.profit}}%</h3>
+            <h4>{{i.entry_price}}$</h4>
+            <h4>{{i.sell_price}}$</h4>
+            <h5>{{i.exchange}}</h5>
+             <h5>{{i.date|naturaltime}}</h5>
+
+        </div>
+    {%endif%}
+    {%endif%}
+    {%endfor%}
+
+</div>
+</body>
+</html>

@@ -20,6 +20,7 @@ from .views import MyPasswordChangeView, MyPasswordSetView
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Dashboard
+    path('/apps', include('deals.urls')),
     path('',include('dashboards.urls')),
     # Layouts
     path('layouts/',include('layouts.urls')),

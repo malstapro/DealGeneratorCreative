@@ -46,6 +46,8 @@ DEFAULT_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'deals',
+    'django.contrib.humanize'
     
     ]
 LOCAL_APPS = [
@@ -170,13 +172,7 @@ MESSAGE_TAGS = {
 }
 
 # SMTP Configure
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "Your email address"
-EMAIL_HOST_PASSWORD = "Your host password"
-DEFAULT_FROM_EMAIL = "Your email address"
+
 
 #  All Auth Configurations
 
