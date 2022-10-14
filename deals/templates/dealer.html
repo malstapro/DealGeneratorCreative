@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% extends "partials/base.html" %}
 {% load humanize %}
 {%load static%}
 <html lang="en">
@@ -10,7 +11,9 @@
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
 </head>
 <body>
-<div style="width:40vw;border-right:1px solid black;border-bottom:1px solid black">
+{%block content%}
+
+<div style="width:40vw;border-right:1px solid black;border-bottom:1px solid black;position:absolute;left:20%;top:10%">
     <ul class="list-group list-group-flush">
   <li class="list-group-item active"> <h4>Bitcoin: {{btc}} $</h4></li>
   <li class="list-group-item"><h4>Etherum: {{eth}} $</h4></li>
@@ -25,7 +28,7 @@
 </div>
 
 
-<div class="bg-secondary" style="width:30%;height:680px;overflow:auto">
+<div class="bg-secondary" style="width:30%;height:680px;overflow:auto;position:absolute;left:20.5%;top:80%">
     <h2 style="color:white;">Консервативный</h2>
     {%for i in deals%}
     {%if i.type == 'Conserve'%}
@@ -52,7 +55,7 @@
 
 </div>
 
-<div class="bg-warning" style="position:absolute;top:73%;left:35%;width:30%;height:680px;overflow:auto">
+<div class="bg-warning" style="position:absolute;top:80%;left:40%;width:30%;height:680px;overflow:auto">
     <h2 style="color:white;text-align:center">Рискованый</h2>
     {%for i in deals%}
     {%if i.type == 'Risk'%}
@@ -79,7 +82,7 @@
 
 </div>
 
-<div class="bg-dark" style="position:absolute;top:73%;left:70%;width:30%;height:680px;overflow:auto">
+<div class="bg-dark" style="position:absolute;top:80%;left:70%;width:30%;height:680px;overflow:auto">
     <h2 style="color:white;text-align:center">Сбалансированый</h2>
     {%for i in deals%}
     {%if i.type == 'Balance'%}
@@ -105,5 +108,7 @@
     {%endfor%}
 
 </div>
+{% endblock content %}
+
 </body>
 </html>
